@@ -4,14 +4,13 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Weather App</title>
-  <link href="src/style.css" rel="stylesheet" type="text/css" />
+  <title>Weather App</title> 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous" />
   <script src="https://unpkg.com/feather-icons"></script>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <link href="src/style.css" rel="stylesheet" type="text/css" />
 </head>
-
 <body>
   <main>
     <div class="row justify-content-center">
@@ -61,13 +60,9 @@
     </div>
 
     <section class="days container justify-content-center ">
-      <div class="row">
-        <div class="col-lg-2 col-4 g-4">
-          <h5>Mon</h5>
-          <i data-feather="sun"></i>
-          <p>23oC</p>
-        </div>
-        <div class="col-lg-2 col-4  g-4">
+      <div class="row" id="forecastShow">
+        
+      <!--    <div class="col-lg-2 col-4  g-4">
           <h5>Tues</h5>
           <i data-feather="cloud-rain"></i>
           <p>23oC</p>
@@ -92,7 +87,7 @@
           <i data-feather="cloud-drizzle"></i>
           <p>12oC</p>
         </div>
-        <!--  <div class="col-lg-1 col-3  g-4">
+        <div class="col-lg-1 col-3  g-4">
                     <h5>Sun</h5>
                     <i data-feather="cloud"></i>
                     <p>23oC</p>
@@ -118,5 +113,4 @@
 <b>by Mani</b>
 </div>
 </body>
-
 </html>
