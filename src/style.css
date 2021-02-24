@@ -1,0 +1,57 @@
+main {
+    margin: 0 auto;
+    width: 50%;
+    height: 50%;
+    border: 3px solid gray;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 4%;
+    filter: drop-shadow(2px 4px 8px #585858);
+    mix-blend-mode: screen;
+  }
+  .searchBtn {
+    padding: 10px;
+  }
+ /*  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    border-radius: 3%;
+    background-color: black;
+    opacity: 0.2;
+    z-index: 1;
+  } */
+  
+  video {
+    border-radius: 3%;
+    height: auto;
+    width: 100%;
+    overflow: hidden;
+    position: fixed;
+  }
+  
+  .container {
+    position: relative;
+    z-index: 2;
+  }
+  
+  span {
+    font-weight: 600;
+    font-size: 4vh;
+    margin-bottom: 10px;
+    padding: 0 10px 10px 0;
+  }
+  p {
+    font-weight: 400;
+    padding: 0 10px 10px 0;
+  }
+  .footer{
+    margin: 20px;
+    padding: 10px;;
+  }
+  #city{
+    font-size: 40px;
+  }
+  
