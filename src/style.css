@@ -1,50 +1,49 @@
 main {
     margin: 0 auto;
-    width: 50%;
+    width: 70%;
     height: 50%;
     border: 3px solid gray;
     padding: 20px;
     margin-top: 20px;
-    border-radius: 4%;
+    border-radius: 2%;
     filter: drop-shadow(2px 4px 8px #585858);
     mix-blend-mode: screen;
+    position: relative;
+  }
+  main::before{
+    content:'';
+    display: block;
+    position: absolute;
+    top: 0;   
+    right: -0.35%;
+    mix-blend-mode: screen;
+    border-right: 3px solid rgb(238, 236, 236);   
+        height: 50%;    
+    margin-top: 150px;      
   }
   .searchBtn {
     padding: 10px;
-  }
- /*  .overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    border-radius: 3%;
-    background-color: black;
-    opacity: 0.2;
-    z-index: 1;
-  } */
-  
+  }  
   video {
     border-radius: 3%;
     height: auto;
     width: 100%;
     overflow: hidden;
     position: fixed;
-  }
-  
+  }  
   .container {
     position: relative;
     z-index: 2;
-  }
-  
+  }  
   span {
-    font-weight: 600;
-    font-size: 4vh;
+    font-weight: 500;
+    font-size: 1vh;
     margin-bottom: 10px;
     padding: 0 10px 10px 0;
   }
   p {
     font-weight: 400;
+    font-size: 3vh;
     padding: 0 10px 10px 0;
   }
   .footer{
@@ -52,6 +51,31 @@ main {
     padding: 10px;;
   }
   #city{
-    font-size: 40px;
+    font-size: 35px;
   }
-  
+  #imgChange {
+    height: 50vh;
+    width: 45vh;
+    border: cornsilk;
+    border-radius: 30%;
+    filter: drop-shadow(2px 4px 8px #585858);
+  }
+  /* If the screen size is 601px wide or more, set the font-size of <div> to 80px */
+@media screen and (min-width: 601px) {
+  .showCityDetails{
+    font-size: 80px;
+  }
+}
+
+/* If the screen size is 600px wide or less, set the font-size of <div> to 30px */
+@media screen and (max-width: 600px) {
+  .showCityDetails{
+    font-size: 30px;
+  }
+}
+  /* If the screen size is 600px wide or less, set the font-size of <div> to 30px */
+  @media screen and (max-width: 600px) {
+    #windSpeed{
+       margin-left:0px;
+    }
+  }
