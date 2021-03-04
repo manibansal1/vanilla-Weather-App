@@ -1,2 +1,2 @@
-# vanilla-Weather App
+# Vanilla-Weather App
  
