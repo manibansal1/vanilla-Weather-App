@@ -162,7 +162,7 @@ function currentWeatherForcast(response) {
     let currentemp = Math.round(response.data.main.temp);
 
     if(currentemp > 16 && currentemp  <= 25){         
-    currentimgElement.setAttribute("src",`media/sunny-weather.png`);
+        cuurentimgElement.setAttribute("src",`media/sunny-weather.png`);
     }else if(currentemp  < 0 ){
         cuurentimgElement.setAttribute("src",`media/snow.png`);    
     }else if(currentemp  > 1 && currentemp  <= 15){
