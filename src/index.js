@@ -61,23 +61,24 @@ return `${hour}:${min} ${AmOrPm}`;
 }
 
 function weatherForcasti(response) {
+    console.log(response.data);
     let forecastElement = document.querySelector("#forecastShow");
-    forecastElement.innerHTML=null;
+        forecastElement.innerHTML=null;
     let forecast = null;    
     for (let index = 0; index < 6; index++) {
         forecast = response.data.list[index];
         let iconShow = forecast.weather[0].icon;
-       let timeShow = forecastHours(forecast.dt * 1000);
+        let timeShow = forecastHours(forecast.dt * 1000);
         forecastElement.innerHTML += ` <div class="col-lg-2 col-4 g-5">
              <p>${timeShow}</p>    
             <img src="http://openweathermap.org/img/wn/${iconShow}@2x.png" id="images";>   
        <p>${Math.round(forecast.main.temp_max)}°c</p>
     </div>`;
-         }
+         } 
 }
 function weatherForcast(response) {
     let imgElement = document.querySelector("#imgChange");
-    let weatherDescp = response.data.weather[0].description;
+   // let weatherDescp = response.data.weather[0].description;
     let temp = Math.round(response.data.main.temp);
   // console.log(response.data.weather[0].description);
     if(temp > 16 && temp <= 25){         
@@ -126,6 +127,50 @@ function signUp(event) {
 let form = document.querySelector("#search-input-form");
 form.addEventListener("submit", signUp);
 //Current Location
+function currentforecastHours(timestamp){  
+    let now = new Date(timestamp); 
+let min = now.getMinutes();
+if (min < 10) {
+    min = `0${min}`;
+}
+    let hour = now.getHours();
+if (hour < 10) {
+    hour = `0${hour}`;
+}
+let AmOrPm = hour >= 12 ? "pm" : "am";
+hour = hour % 12 || 12;
+return `${hour}:${min} ${AmOrPm}`;
+}
+function currentWeatherForcasti(response) {    
+     let currentforecastElement = document.querySelector("#forecastShow");
+     currentforecastElement.innerHTML=null;
+     let currentforecast = null;    
+     for (let x = 0; x < 6; x++) {
+        currentforecast = response.data.list[x];
+        let currenticonShow = currentforecast.weather[0].icon;
+        let currenttimeShow = forecastHours(currentforecast.dt * 1000);
+        currentforecastElement.innerHTML += ` <div class="col-lg-2 col-4 g-5">
+            <p>${currenttimeShow}</p>    
+            <img src="http://openweathermap.org/img/wn/${currenticonShow}@2x.png" id="images";>   
+            <p>${Math.round(currentforecast.main.temp_max)}°c</p>
+        </div>`;
+    } 
+}
+function currentWeatherForcast(response) {
+     //console.log(response.data.main.temp);
+   let cuurentimgElement = document.querySelector("#imgChange");  
+    let currentemp = Math.round(response.data.main.temp);
+
+    if(currentemp > 16 && currentemp  <= 25){         
+    currentimgElement.setAttribute("src",`media/sunny-weather.png`);
+    }else if(currentemp  < 0 ){
+        cuurentimgElement.setAttribute("src",`media/snow.png`);    
+    }else if(currentemp  > 1 && currentemp  <= 15){
+        cuurentimgElement.setAttribute("src",`media/clody.png`);
+}else if(currentemp  >= 26){
+    cuurentimgElement.setAttribute("src",`media/sunny-transparent.png`);
+}  
+}
 function weather(response) {
     let temprature = Math.round(response.data.main.temp);
     let cityName = response.data.name;
@@ -143,16 +188,19 @@ function weather(response) {
     wind.innerHTML = `Wind: ${windSpeedValue} Km/H`;
     let visible = document.querySelector("#clearity");
     visible.innerHTML = `Visibility: ${visibilityValue}`;
-}
+} 
 function geo(position) {
     let longitude = position.coords.longitude;
     let latitude = position.coords.latitude;
     let key = "13e2506a1c7afb0b57bd67ef7fa6b1ef";
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${key}&units=metric`;
+    let ApiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${key}&units=metric`;
     axios.get(apiUrl).then(weather);
+    axios.get(apiUrl).then(currentWeatherForcast);
+    axios.get(ApiUrl).then(currentWeatherForcasti);
 }
 function getcurrentLocation() {
-    navigator.geolocation.getCurrentPosition(geo);
+    navigator.geolocation.getCurrentPosition(geo);  
 }
 let curentlocation = document.querySelector("#currentLocationShow");
 curentlocation.addEventListener("click", getcurrentLocation);
