@@ -6,8 +6,7 @@ main {
     padding: 20px;
     margin-top: 20px;
     border-radius: 2%;
-    filter: drop-shadow(2px 4px 8px #585858);
-    mix-blend-mode: screen;
+    filter: drop-shadow(2px 4px 8px #585858);   
     position: relative;
   }
   main::before{
@@ -15,8 +14,7 @@ main {
     display: block;
     position: absolute;
     top: 0;   
-    right: -0.35%;
-    mix-blend-mode: screen;
+    right: -0.35%;    
     border-right: 3px solid rgb(238, 236, 236);   
         height: 50%;    
     margin-top: 150px;      
